@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>返回顶部</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>这里是顶部</h1>
+	<!-- demo1 -->
+	<a href="javascript:window.scrollTo(0,0)" class="back back1" title="返回顶部">点我1</a>
+
+	<!-- dome2 -->
+	<div class="back back2" title="返回顶部">点我2</div>
+
+	<!-- dome3 -->
+	<div id="toTop" class="back back3" title="返回顶部">点我3</div>
+
+	<script src="http://www.jq22.com/jquery/jquery-1.7.1.js"></script>
+	<script>
+		//  jquery
+		$('.back2').hide();
+		$(document).scroll(function () {
+			var toTopHeight = $(document).scrollTop();
+			if (toTopHeight > 100) {
+				$('.back2').fadeIn();
+			} else {
+				$('.back2').fadeOut();
+			}
+		});
+		$('.back2').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 1000);
+		});
+
+		// javascript
+
+		var toTop = document.getElementById('toTop');
+		var timer = null;
+		var isTop = true;
+		window.onscroll = function () {
+			var scrollTopHeight = document.documentElement.scrollTop || document.body.scrollTop;
+			if (scrollTopHeight >= 500) {
+				toTop.style.display = "block";
+			} else {
+				toTop.style.display = "none";
+			};
+			if (!isTop) {
+				clearInterval(timer);
+			};
+			isTop = false;
+		};
+
+		toTop.onclick = function () {
+			timer = setInterval(function () {
+				var scrollTopHeight = document.documentElement.scrollTop || document.body.scrollTop;
+				var ispeed = Math.floor(-scrollTopHeight / 10);
+				document.documentElement.scrollTop = document.body.scrollTop = scrollTopHeight + ispeed;
+				if (scrollTopHeight == 0) {
+					clearInterval(timer);
+				};
+				isTop = true;
+			}, 30);
+		};
+
+
+	</script>
+</body>
+
+</html>
