@@ -1,0 +1,76 @@
+.box {
+  width: 400px;
+  height: 400px;
+  margin: 10% auto;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 1px #d2d2d2 solid;
+  animation: rotate infinite linear 5s;
+  -webkit-animation: rotate infinite linear 5s;
+  -moz-animation: rotate infinite linear 5s;
+}
+
+.rect {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+.rect_white {
+  background: white;
+}
+
+.rect_black {
+  background: black;
+}
+
+.inner_circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.inner_circle_black {
+  bottom: -100px;
+  left: 0;
+  background: black;
+}
+
+.inner_circle_white {
+  bottom: 100px;
+  right: 0;
+  background: white;
+}
+
+.dot {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100%;
+}
+
+.dot_white {
+  background: white;
+}
+
+.dot_black {
+  background: black;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
